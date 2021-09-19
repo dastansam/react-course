@@ -12,6 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CardMedia } from '@mui/material';
+
+
+// const ColorButton = styled(Button)(({ theme }) => ({
+//   color: theme.palette.getContrastText(purple[500]),
+//   backgroundColor: purple[500],
+//   '&:hover': {
+//     backgroundColor: purple[700],
+//   },
+// }));
 
 function Copyright(props) {
   return (
@@ -43,6 +53,12 @@ export default function SignIn() {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <CardMedia
+          component="img"
+          height="300"
+          style={{ paddingTop: "50px" }}
+          image="https://artis.app/static/images/globe.jpeg"
+        />
         <Box
           sx={{
             marginTop: 8,
@@ -87,18 +103,14 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              classes={{  }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="/forgot" variant="body2">
                   Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
