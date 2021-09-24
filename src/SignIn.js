@@ -15,20 +15,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CardMedia } from '@mui/material';
 
 
-// const ColorButton = styled(Button)(({ theme }) => ({
-//   color: theme.palette.getContrastText(purple[500]),
-//   backgroundColor: purple[500],
-//   '&:hover': {
-//     backgroundColor: purple[700],
-//   },
-// }));
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      {'© 2021 Artis.app -- '}
+      <Link color="inherit" href="https://material-ui.com/" style={{textDecoration:"none"}}>
+      founded by Hollywood creatives for fellow creatives worldwide
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -36,7 +29,12 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+typography: {
+  "fontFamily": `"Bellafair", serif`,
+}
+});
+
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -51,40 +49,55 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
         <CardMedia
           component="img"
-          height="300"
-          style={{ paddingTop: "50px" }}
+          style={{width: '25%', paddingTop: "20px", margin: "auto"}}
           image="https://artis.app/static/images/globe.jpeg"
         />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography component="h1" variant="h5" style={{fontSize: "1.5em"}}>
+          WHERE ARTISTS PROTECT
+          <br />
+          AND SELL THEIR WORK
+          <br />
+          <br />
+          Digital and real-world art is copied endlessly. Billions in earnings lost by artists and 
+          art owners. Artis.app enables the safe marketing of all art - written, image, physical, audio -
+          - around the world and ensures its valuable authenticity -- <em>for free</em>
+          <br />
+          <br />
+          Artis.app is a community project created by artists for artists.
+          <br/>
+          <br/>
+          Currently, registration is by invitation.
+         <br />
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width: "80%"}}>
             <TextField
+              variant="standard"
+              style={{textTransform: "none"}}
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Username or Email"
               name="email"
               autoComplete="email"
               autoFocus
+              InputLabelProps={{required: false}}  
             />
             <TextField
+              variant="standard"
+              style={{textTransform: "none"}}
               margin="normal"
               required
               fullWidth
@@ -93,27 +106,54 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              InputLabelProps={{required: false}}  
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              <Grid container>
+              <Grid item xs
+              sx={{ml: 38}}
+              >
+                <Link href="/forgot" variant="body2" style={{textDecoration: "none"}}>
+                  lost password
+                </Link>
+              
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              className="normal"
+              fullWidth
+              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "teal", textTransform: "none"}}
+              variant="text"
+              sx={{ mt: 3, mb: 2}}
+              classes={{  }}
+            >
+              Log In
+            </Button>
+            <TextField
+              style={{textTransform: 'none'}}
+              variant="standard"
+              margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="Artis Code"
+              type="text"
+              id="name"
+              autoComplete="off"
+              sx={{mb: 3}}   
+              InputLabelProps={{required: false}}         
             />
             <Button
               type="submit"
+              className="normal"
               fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "brown", textTransform: "none"}}
+              variant="text"
+              sx={{ mt: -1, mb: 2}}
               classes={{  }}
             >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="/forgot" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
+              Look Up
+            </Button>  
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
