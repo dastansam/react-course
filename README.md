@@ -20,6 +20,12 @@ Now you should see your website running.
 
 Make changes and save the file, if you have any errors, fix them and check the website in the above address.
 
+## Task 2
+
+Add detail page.
+
+// TO-DO
+
 ## Material
 
 If you have any problems with `Material UI`, go to their website annd check check out how they use the components.
