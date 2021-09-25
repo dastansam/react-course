@@ -11,9 +11,8 @@ import { ClassNames } from "@emotion/react";
 function Copyright(props) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'© 2021 Artis.app - '}
+        {'© 2021 Artis.app - a blockchain community project'}
         <Link color="inherit" href="https://material-ui.com/" style={{textDecoration:"none"}}>
-        a blockchain community project
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -55,6 +54,7 @@ export default function Forgot(){
         >
             <Typography component="h1" variant="h5" style={{fontSize: "1.5em"}}>
             Lost your password?
+            <br/>
             <br/>
             No worries. Input your email and we'll send you a password reset link.
             <br/>

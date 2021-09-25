@@ -11,19 +11,17 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { createMuiTheme, ThemeProvider } from '@mui/material/styles';
 import { CardMedia, Switch } from '@mui/material';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Forgot from './Forgot';
 import { NavLink } from 'react-router-dom';
+import {useTheme, createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'© 2021 Artis.app -- '}
+      {'© 2021 Artis.app -- founded by Hollywood creatives for fellow creatives worldwide'}
       <Link color="inherit" href="https://material-ui.com/" style={{textDecoration:"none"}}>
-      founded by Hollywood creatives for fellow creatives worldwide
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -31,11 +29,14 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme({
-typography: {
-  "fontFamily": `"Bellafair", serif`,
-}
-});
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "Bellafair",
+      "serif",
+    ].join(','),
+  }
+})
 
 export default function SignIn() {
   const handleSubmit = (event) => {
