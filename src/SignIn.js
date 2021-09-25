@@ -12,8 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CardMedia } from '@mui/material';
-
+import { CardMedia, Switch } from '@mui/material';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Forgot from './Forgot';
+import { NavLink } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -35,7 +37,6 @@ typography: {
 }
 });
 
-
 export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,8 +47,7 @@ export default function SignIn() {
       password: data.get('password'),
     });
   };
-
-  return (
+  return ( 
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="sm">
         <CssBaseline />
@@ -93,7 +93,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
-              InputLabelProps={{required: false}}  
+              InputLabelProps={{required: false,}}  
             />
             <TextField
               variant="standard"
@@ -112,10 +112,9 @@ export default function SignIn() {
               <Grid item xs
               sx={{ml: 38}}
               >
-                <Link href="/forgot" variant="body2" style={{textDecoration: "none"}}>
+                <NavLink to="/forgot" variant="body2" style={{textDecoration: "none"}}>
                   lost password
-                </Link>
-              
+                </NavLink>
               </Grid>
             </Grid>
             <Button
@@ -158,6 +157,6 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+    </ThemeProvider>   
   );
 }
