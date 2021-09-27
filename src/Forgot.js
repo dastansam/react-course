@@ -52,7 +52,7 @@ export default function Forgot(){
             alignItems: 'center',
           }}
         >
-            <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: ["Bellefair", "serif"].join(",")}}>
+            <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: "Bellefair, serif"}}>
             Lost your password?
             <br/>
             <br/>
@@ -78,7 +78,7 @@ export default function Forgot(){
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.3em", color: "teal", textTransform: "none", fontFamily: ["Bellefair", "serif"].join(",")}}
+              style={{backgroundColor: "transparent", fontSize: "1.3em", color: "teal", textTransform: "none", fontFamily: "Bellefair, serif"}}
               variant="text"
               sx={{ mt: 3, mb: 2}}
               classes={{  }}

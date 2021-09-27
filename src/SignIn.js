@@ -35,7 +35,6 @@ const theme = createTheme({
 });
 
 export default function SignIn() {
-  const classes = useStyles();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -62,7 +61,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: ["Bellefair", "serif"].join(",")}}>
+          <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: "Bellefair, serif"}}>
           WHERE ARTISTS PROTECT
           <br />
           AND SELL THEIR WORK
@@ -121,7 +120,7 @@ export default function SignIn() {
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.5em", hover: "none", color: "teal", textTransform: "none", fontFamily: ["Bellefair", "serif"].join(",")}}
+              style={{backgroundColor: "transparent", fontSize: "1.5em", hover: "none", color: "teal", textTransform: "none", fontFamily: "Bellefair, serif"}}
               variant="text"
               sx={{ mt: 3, mb: 2}}
               classes={{ }}
@@ -146,7 +145,7 @@ export default function SignIn() {
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "brown", textTransform: "none", fontFamily: ["Bellefair", "serif"].join(",")}}
+              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "brown", textTransform: "none", fontFamily: "Bellefair, serif"}}
               variant="text"
               sx={{ mt: -1, mb: 2}}
               classes={{  }}
