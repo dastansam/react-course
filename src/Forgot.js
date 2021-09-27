@@ -1,12 +1,9 @@
 import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CardMedia, Container, CssBaseline, TextField, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-
-import { ClassNames } from "@emotion/react";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
     return (
@@ -21,11 +18,14 @@ function Copyright(props) {
   }
 
 const theme = createTheme({
-  typography: {
-    "fontFamily": `"Bellafair", serif`,
-  }
-  });
-    
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableRipple: true
+      },
+    },
+  },
+});  
 
 export default function Forgot(){
     const handleSubmit = (event)=>{
@@ -38,10 +38,10 @@ export default function Forgot(){
     return(
         <ThemeProvider theme={theme}>
           <CssBaseline />
-            <Container component="child" maxWidth="sm">               
+            <Container component="child" maxWidth="md">               
                 <CardMedia
                 component="img"
-                style={{width: "50%", paddingTop: "10px", margin: "auto"}}
+                style={{width: "40%", paddingTop: "10px", margin: "auto"}}
                 image="https://artis.app/static/images/questionmark.jpg"
                 />
             <Box
@@ -52,7 +52,7 @@ export default function Forgot(){
             alignItems: 'center',
           }}
         >
-            <Typography component="h1" variant="h5" style={{fontSize: "1.5em"}}>
+            <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: "Bellefair, serif"}}>
             Lost your password?
             <br/>
             <br/>
@@ -71,14 +71,14 @@ export default function Forgot(){
              name="email"
              autoComplete="email"
              autoFocus
-             InputLabelProps={{required: false,}}  
+             InputLabelProps={{required: false, sx:{color: "#9E9E9E"}}}  
              />
             </Box>
             <Button
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "teal", textTransform: "none"}}
+              style={{backgroundColor: "transparent", fontSize: "1.3em", color: "teal", textTransform: "none", fontFamily: "Bellefair, serif"}}
               variant="text"
               sx={{ mt: 3, mb: 2}}
               classes={{  }}
