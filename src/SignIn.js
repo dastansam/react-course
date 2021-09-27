@@ -1,20 +1,15 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { CardMedia, Switch } from '@mui/material';
+import { CardMedia} from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import {useTheme, createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
   return (
@@ -28,16 +23,19 @@ function Copyright(props) {
   );
 }
 
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: [
-      "Bellafair",
-      "serif",
-    ].join(','),
-  }
-})
+const theme = createTheme({
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableRipple: true
+      },
+    },
+  },
+ 
+});
 
 export default function SignIn() {
+  const classes = useStyles();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -49,11 +47,11 @@ export default function SignIn() {
   };
   return ( 
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="sm">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <CardMedia
           component="img"
-          style={{width: '25%', paddingTop: "20px", margin: "auto"}}
+          style={{width: '23%', paddingTop: "20px", margin: "auto"}}
           image="https://artis.app/static/images/globe.jpeg"
         />
         <Box
@@ -64,15 +62,15 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" style={{fontSize: "1.5em"}}>
+          <Typography component="h1" variant="h5" style={{fontSize: "1.5em", fontFamily: ["Bellefair", "serif"].join(",")}}>
           WHERE ARTISTS PROTECT
           <br />
           AND SELL THEIR WORK
           <br />
           <br />
-          Digital and real-world art is copied endlessly. Billions in earnings lost by artists and 
-          art owners. Artis.app enables the safe marketing of all art - written, image, physical, audio -
-          - around the world and ensures its valuable authenticity -- <em>for free</em>
+          Digital and real-world art is copied endlessly. Billions in earnings lost by artists and
+          art owners. Artis.app enables the safe marketing of all art - written, image, physical, 
+          audio -- around the world and ensures its valuable authenticity -- <em>for free</em>.
           <br />
           <br />
           Artis.app is a community project created by artists for artists.
@@ -81,19 +79,21 @@ export default function SignIn() {
           Currently, registration is by invitation.
          <br />
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width: "80%"}}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width: "60%"}}>
             <TextField
               variant="standard"
               style={{textTransform: "none"}}
               margin="normal"
               required
               fullWidth
+              color=""
               id="email"
               label="Username or Email"
               name="email"
               autoComplete="email"
               autoFocus
-              InputLabelProps={{required: false,}}  
+              InputLabelProps={{required: false, sx:{color: "#9E9E9E"}}}
+              InputProps={{}}
             />
             <TextField
               variant="standard"
@@ -106,13 +106,13 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
-              InputLabelProps={{required: false}}  
+              InputLabelProps={{required: false, sx:{color: "#9E9E9E"}}}  
             />
               <Grid container>
               <Grid item xs
-              sx={{ml: 38}}
+              sx={{ml: 50}}
               >
-                <NavLink to="/forgot" variant="body2" style={{textDecoration: "none"}}>
+                <NavLink to="/forgot" variant="body2" style={{textDecoration: "none", fontSize: "1em", color: "#03B6EF", fontFamily: "Arial"}}>
                   lost password
                 </NavLink>
               </Grid>
@@ -121,10 +121,10 @@ export default function SignIn() {
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "teal", textTransform: "none"}}
+              style={{backgroundColor: "transparent", fontSize: "1.5em", hover: "none", color: "teal", textTransform: "none", fontFamily: ["Bellefair", "serif"].join(",")}}
               variant="text"
               sx={{ mt: 3, mb: 2}}
-              classes={{  }}
+              classes={{ }}
             >
               Log In
             </Button>
@@ -140,13 +140,13 @@ export default function SignIn() {
               id="name"
               autoComplete="off"
               sx={{mb: 3}}   
-              InputLabelProps={{required: false}}         
+              InputLabelProps={{required: false, sx:{color: "#9E9E9E"}}}         
             />
             <Button
               type="submit"
               className="normal"
               fullWidth
-              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "brown", textTransform: "none"}}
+              style={{backgroundColor: "transparent", fontSize: "1.5em", color: "brown", textTransform: "none", fontFamily: ["Bellefair", "serif"].join(",")}}
               variant="text"
               sx={{ mt: -1, mb: 2}}
               classes={{  }}
